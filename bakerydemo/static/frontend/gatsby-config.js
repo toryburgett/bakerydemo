@@ -4,7 +4,7 @@ module.exports = {
     },
     plugins: [
         {
-            resolve: 'gatsby-source-wagtail',
+            resolve: 'gatsby-plugin-graphql',
             options: {
                 endpoint: 'http://localhost:8000/graphql',
                 queries: {

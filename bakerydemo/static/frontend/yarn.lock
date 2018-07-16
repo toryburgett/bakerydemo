@@ -3178,6 +3178,12 @@ gatsby-module-loader@^1.0.11:
     babel-runtime "^6.26.0"
     loader-utils "^0.2.16"
 
+"gatsby-plugin-graphql@https://github.com/NathHorrigan/gatsby-plugin-graphql":
+  version "1.0.0"
+  resolved "https://github.com/NathHorrigan/gatsby-plugin-graphql#2518af9654d02dab5a471de07770e384f9328532"
+  dependencies:
+    graphql-request "^1.6.0"
+
 gatsby-plugin-page-creator@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-page-creator/-/gatsby-plugin-page-creator-1.0.1.tgz#6bad33a7f46cb5b87dbdaacc3c1bbd81ac63bc20"
@@ -3221,12 +3227,6 @@ gatsby-source-graphql@^1.1.1:
   dependencies:
     node-fetch "^2.1.2"
     tslib "^1.9.0"
-
-"gatsby-source-wagtail@https://github.com/NathHorrigan/gatsby-source-wagtail":
-  version "1.0.0"
-  resolved "https://github.com/NathHorrigan/gatsby-source-wagtail#6e56c6a50b2554f704ed917139e6e441b9cfdc7a"
-  dependencies:
-    graphql-request "^1.6.0"
 
 gatsby@^1.9.250:
   version "1.9.273"
