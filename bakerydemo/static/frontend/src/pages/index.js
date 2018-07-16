@@ -1,14 +1,14 @@
 import React from "react";
-
+import styles from "./index.module.css";
 import Card from "../components/card";
 
 export default ({data}) => {
     return (
-      <ul>
+      <div className={styles.cardContainer}>
         {data.breadGraphQl.breads.map(bread => (
-          <Card key={bread.id} bread={bread} />
+          <Card key={bread.id} bread={bread} styles={styles} />
         ))}
-      </ul>
+      </div>
     )
 }
 
