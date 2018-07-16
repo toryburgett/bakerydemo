@@ -3198,12 +3198,6 @@ gatsby-react-router-scroll@^1.0.18:
     scroll-behavior "^0.9.9"
     warning "^3.0.0"
 
-"gatsby-source-@https://github.com/NathHorrigan/gatsby-source-wagtail":
-  version "1.0.0"
-  resolved "https://github.com/NathHorrigan/gatsby-source-wagtail#7e283fe49abd3c863e37a76996be6a3b12e55eb4"
-  dependencies:
-    graphql-request "^1.6.0"
-
 gatsby-source-filesystem@^1.5.39:
   version "1.5.39"
   resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-1.5.39.tgz#c7e49b7809632b53c827e66ff3ee0ba74ef62dd8"
@@ -3227,6 +3221,12 @@ gatsby-source-graphql@^1.1.1:
   dependencies:
     node-fetch "^2.1.2"
     tslib "^1.9.0"
+
+"gatsby-source-wagtail@https://github.com/NathHorrigan/gatsby-source-wagtail":
+  version "1.0.0"
+  resolved "https://github.com/NathHorrigan/gatsby-source-wagtail#6e56c6a50b2554f704ed917139e6e441b9cfdc7a"
+  dependencies:
+    graphql-request "^1.6.0"
 
 gatsby@^1.9.250:
   version "1.9.273"

@@ -9,7 +9,8 @@
   },
   "dependencies": {
     "gatsby": "^1.9.250",
-    "gatsby-link": "^1.6.40"
+    "gatsby-link": "^1.6.40",
+    "gatsby-source-wagtail": "https://github.com/NathHorrigan/gatsby-source-wagtail"
   },
   "devDependencies": {
     "gatsby-source-filesystem": "^1.5.39",
