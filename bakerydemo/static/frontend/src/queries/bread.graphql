@@ -1,0 +1,6 @@
+query BreadQuery {
+    breads {
+      id
+      title
+    }
+}
