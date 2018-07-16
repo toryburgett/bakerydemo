@@ -13,7 +13,7 @@ export default ({data}) => {
 
 export const query = graphql`
   query BreadQuery {
-    breadGraphQl {
+    wagtail {
         breads {
            id
         }

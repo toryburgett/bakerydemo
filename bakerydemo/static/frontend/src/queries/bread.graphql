@@ -2,5 +2,8 @@ query BreadQuery {
     breads {
       id
       title
+      breadType {
+        id
+      }
     }
 }

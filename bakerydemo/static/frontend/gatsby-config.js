@@ -4,16 +4,13 @@ module.exports = {
     },
     plugins: [
         {
-            resolve: 'gatsby-source-filesystem',
+            resolve: 'gatsby-source-wagtail',
             options: {
-                name: 'queries',
-                path: `${__dirname}/src/queries/`,
-            },
-        },
-        {
-            resolve: 'gatsby-source-graphql',
-            options: {
-                url: 'http://localhost:8000/graphql',
+                endpoint: 'http://localhost:8000/graphql',
+                queries: {
+                    type: 'wagtail',
+                    path: `${__dirname}/src/queries/`,
+                }
             },
         },
     ]
