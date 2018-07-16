@@ -2,10 +2,10 @@ import React from "react";
 import styles from "./index.module.css";
 import Card from "../components/card";
 
-export default ({data}) => {
+export default ({data: { wagtail }}) => {
     return (
       <div className={styles.cardContainer}>
-        {data.breadGraphQl.breads.map(bread => (
+        {wagtail.breads.map(bread => (
           <Card key={bread.id} bread={bread} styles={styles} />
         ))}
       </div>
