@@ -4,9 +4,6 @@ query BreadQuery {
     title
     origin {
       title
-      breadType {
-        id
-      }
     }
     breadType {
       title
