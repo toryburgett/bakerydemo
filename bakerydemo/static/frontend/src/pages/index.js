@@ -1,13 +1,14 @@
 import React from "react";
+import styles from "./index.module.css";
+import Card from "../components/card";
 
 export default ({data}) => {
-    console.log(data)
     return (
-        <ul>
-            { data.breadGraphQl.breads.map(bread => (
-                <li>{ bread.id }</li>
-            ))}
-        </ul>
+      <div className={styles.cardContainer}>
+        {data.breadGraphQl.breads.map(bread => (
+          <Card key={bread.id} bread={bread} styles={styles} />
+        ))}
+      </div>
     )
 }
 
@@ -15,8 +16,18 @@ export const query = graphql`
   query BreadQuery {
     wagtail {
         breads {
-           id
-        }
+          id
+          title
+          origin {
+            title
+          }
+          breadType {
+            title
+          }
+          image {
+            file
+          }
+      }
     }
   }
 `

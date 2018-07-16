@@ -1,9 +1,18 @@
 query BreadQuery {
-    breads {
-      id
+  breads {
+    id
+    title
+    origin {
       title
       breadType {
         id
       }
     }
+    breadType {
+      title
+    }
+    image {
+      file
+    }
+  }
 }
