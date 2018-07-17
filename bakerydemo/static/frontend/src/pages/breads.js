@@ -15,18 +15,18 @@ export default ({data: { wagtail }}) => {
 export const query = graphql`
   query BreadQuery {
     wagtail {
-        breads {
-          id
+      breads {
+        id
+        title
+        origin {
           title
-          origin {
-            title
-          }
-          breadType {
-            title
-          }
-          image {
-            file
-          }
+        }
+        breadType {
+          title
+        }
+        image {
+          file
+        }
       }
     }
   }
