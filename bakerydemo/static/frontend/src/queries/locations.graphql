@@ -1,0 +1,10 @@
+query LocationsQuery {
+  locations {
+    id
+    title
+    address
+    image {
+      file
+    }
+  }
+}

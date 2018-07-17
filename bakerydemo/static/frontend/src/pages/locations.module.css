@@ -1,0 +1,48 @@
+.locations {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+@media screen and (min-width: 800px) {
+    .locations {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.locationImageContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+}
+
+.locationImageContainer:hover {
+    background-color: #eb7400;
+}
+
+.locationImageContainer:hover .locationImage {
+    opacity: 0.3;
+}
+
+.locationImage {
+    width: 100%;
+    height: auto;
+    max-height: 270px;
+    object-fit: cover;
+    object-position: bottom;
+    transition: opacity 0.2s ease;
+}
+
+.locationHeader {
+    position: absolute;
+    color: white;
+    font-size: 3rem;
+    margin: 0;
+}
+
+.locationMeta {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 200;
+}
