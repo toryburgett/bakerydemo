@@ -1,7 +1,7 @@
 import React from 'react';
 
 class Card extends React.Component {
-    render(props) {
+    render() {
         return (
             <div className={this.props.styles.card}>
                 {/* TODO - change hardcoded url */}
