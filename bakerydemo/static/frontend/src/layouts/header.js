@@ -6,6 +6,7 @@ class Header extends React.Component {
         return(
             <header>
                 <Link to='/'><h1>The Wagtail Bakery</h1></Link>
+                <Link to='/breads/'>Breads</Link>&nbsp;
                 <Link to='/locations/'>Locations</Link>
             </header>
         )

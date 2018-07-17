@@ -1,33 +1,9 @@
 import React from "react";
-import styles from "./index.module.css";
-import Card from "../components/card";
 
-export default ({data: { wagtail }}) => {
+export default () => {
     return (
-      <div className={styles.cardContainer}>
-        {wagtail.breads.map(bread => (
-          <Card key={bread.id} bread={bread} styles={styles} />
-        ))}
+      <div>
+        Welcome to the Wagtail Bakery!
       </div>
     )
 }
-
-export const query = graphql`
-  query BreadQuery {
-    wagtail {
-        breads {
-          id
-          title
-          origin {
-            title
-          }
-          breadType {
-            title
-          }
-          image {
-            file
-          }
-      }
-    }
-  }
-`
