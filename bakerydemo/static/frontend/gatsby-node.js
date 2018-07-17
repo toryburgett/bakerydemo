@@ -4,7 +4,7 @@ const path = require('path');
 exports.createPages = ({ boundActionCreators, graphql }) => {
   const { createPage } = boundActionCreators;
 
-  const locationTemplate = path.resolve(`src/templates/locations.js`);
+  const locationTemplate = path.resolve(`src/templates/location.js`);
 
   return graphql(`{
     wagtail {
