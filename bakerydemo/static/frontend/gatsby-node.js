@@ -9,6 +9,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
   return graphql(`{
     wagtail {
       locations {
+        id
         slug
       }
     }
@@ -19,11 +20,14 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
       }
 
       result.data.wagtail.locations
-        .forEach((node) => {
+      .forEach((node) => {
+          const id = node.id;
           createPage({
             path: `locations/${node.slug}`,
             component: locationTemplate,
-            context: {} // additional data can be passed via context
+            context: {
+              id
+            }
           });
         });
     });
