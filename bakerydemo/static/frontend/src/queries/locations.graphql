@@ -1,6 +1,7 @@
 query LocationsQuery {
   locations {
     id
+    slug
     title
     address
     image {
