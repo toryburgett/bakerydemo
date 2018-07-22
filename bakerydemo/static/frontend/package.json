@@ -10,10 +10,7 @@
   "dependencies": {
     "gatsby": "^1.9.250",
     "gatsby-link": "^1.6.40",
-    "gatsby-plugin-graphql": "https://github.com/NathHorrigan/gatsby-plugin-graphql"
+    "gatsby-plugin-graphql": "^1.0.1"
   },
-  "devDependencies": {
-    "gatsby-source-filesystem": "^1.5.39",
-    "gatsby-source-graphql": "^1.1.1"
-  }
+  "devDependencies": {}
 }
