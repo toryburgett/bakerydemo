@@ -1,6 +1,6 @@
 import React from "react";
-import styles from "./breads.module.css";
-import Card from "../components/card";
+import styles from "./breads.module.scss";
+import Card from "@components/card";
 
 export default ({data: { wagtail }}) => {
     return (

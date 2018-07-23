@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './locations.module.css';
+import styles from './locations.module.scss';
 import Link from 'gatsby-link';
 
 export default ({data: { wagtail }}) => {

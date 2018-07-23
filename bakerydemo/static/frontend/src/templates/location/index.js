@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './location.module.css';
+import styles from './location.module.scss';
 
 export default () => {
     return (

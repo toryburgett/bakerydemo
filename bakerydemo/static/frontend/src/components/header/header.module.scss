@@ -1,0 +1,94 @@
+@import '../../styles/main';
+
+.header {
+    padding: 20px 40px 20px 40px;
+    background: $primary;
+    background: linear-gradient(135deg, rgba(25,17,18,1) 0%,rgba(55,28,25,1) 100%);
+    z-index: 10;
+
+    &Top {
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @include for-tablet-landscape-up {
+            justify-content: space-between;
+        }
+    }
+}
+
+.titleLink {
+    padding: 0;
+    color: white;
+    font-size: 30px;
+    font-weight: 300;
+    margin: 0 0 0;
+    text-decoration: none;
+    font-family: $brand;
+
+    &:hover {
+        color: $accent;
+    }
+}
+
+.search {
+    display: none;
+    position: relative;
+    width: 220px;
+
+    @include for-tablet-landscape-up {
+        display: block;
+    }
+
+    &Bar {
+        width: 100%;
+        border-radius: 3px;
+        border: none;
+        font-size: 14px;
+        padding: 10px;
+        font-family: $brand;
+    }
+
+    &Icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        color: $accent;
+        cursor: pointer;
+    }
+}
+
+.nav {
+    display: none;
+    margin-top: 30px;
+
+    @include for-tablet-landscape-up {
+        display: flex;
+    }
+
+    &Link {
+        font-size: 16px;
+        margin-right: 25px;
+        padding-top: 5px;
+        font-family: $body;
+        text-decoration: none;
+        text-transform: uppercase;
+        color: white;
+        
+        &:hover {
+            color: $accent;
+            background-color: transparent;
+            border-top: 1px solid $accent;
+            font-weight: 400;
+        }
+        
+        &Active {
+            color: $accent;
+            background-color: transparent;
+            border-top: 1px solid $accent;
+        }
+    }
+}

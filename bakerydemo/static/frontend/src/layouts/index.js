@@ -1,9 +1,25 @@
 import React from 'react';
-import Header from './header';
+import Header from '@components/header';
+import StickyNav from '@components/sticky-nav';
+
+import styles from './index.module.scss'
+import './reset.css';
+
+
+const primaryNav = [
+    { label: 'Breads', url: '/breads/' },
+    { label: 'Locations', url: '/locations/' },
+]
 
 export default ({ children }) => (
-    <div style={{ margin: `0 auto`, maxWidth: 1400, padding: `0 1rem` }}>
-        <Header />
-        {children()}
+    <div>        
+        <div className={styles.page}>
+            <Header links={primaryNav} />
+            <StickyNav links={primaryNav} />
+
+            <div className={styles.content}>
+                { children() }
+            </div>
+        </div>
     </div>
 );

@@ -1,0 +1,58 @@
+@import '../../styles/main';
+
+.stickyNav {
+    display: flex;
+
+    @include for-tablet-landscape-up {
+        display: none;
+    }
+
+    // Top
+    // position: sticky;
+    // top: 0;
+
+    // Bottom
+    position: fixed;
+    bottom: 0;
+    z-index: 10;
+    -webkit-backface-visibility: hidden;
+    width: 100vw;
+    height: 60px;
+    background: lighten(#371c19, 1%);
+
+    align-items: center;
+    justify-content: flex-start;
+    overflow-y: scroll;
+
+    &Link {
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    
+        color: white;
+        font-size: 18px;
+        font-weight: 300;
+        margin: 0 0 0;
+        text-decoration: none;
+        font-family: $brand;
+
+        min-width: 120px;
+        border-radius: 100px;
+        margin: 10px;
+        background: darken($primary, 1%);
+
+        &Active {
+            background: $accent;
+            color: white;
+        }
+
+        .icon {
+            display: none;
+            color: white;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+    }
+}
