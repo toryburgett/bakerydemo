@@ -14,6 +14,7 @@ export default ({ links }) => {
             </span>
             {(links || []).map(link => (
                 <Link
+                    key={link.url}
                     className={styles.stickyNavLink}
                     activeClassName={styles.stickyNavLinkActive}
                     to={link.url}>

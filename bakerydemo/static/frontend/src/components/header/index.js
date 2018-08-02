@@ -31,6 +31,7 @@ class Header extends React.Component {
                         <Link 
                             className={styles.navLink} 
                             activeClassName={styles.navLinkActive}  
+                            key={link.url}
                             to={link.url}>
                                 {link.label}
                         </Link>
