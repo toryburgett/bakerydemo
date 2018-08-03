@@ -21,11 +21,11 @@ class Blog(DjangoObjectType):
 
 class Query(graphene.ObjectType):
 
-    blogs = graphene.List(Blog, id=graphene.Int())
+    blogs = graphene.List(Blog)
     def resolve_blogs(self, info):
         return models.BlogPage.objects.all()
 
-    blog = graphene.Field(Blog)
+    blog = graphene.Field(Blog, id=graphene.Int())
     def resolve_blog(self, info, **kwargs):
         id = kwargs.get('id')
 
