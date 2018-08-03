@@ -47,9 +47,23 @@ class PageDjangoObjectType(DjangoObjectType):
 
 
 class PagesRootQuery(graphene.ObjectType):
-    all = graphene.List(PageDjangoObjectType, content_types=graphene.String())
 
-    def resolve_all(self, info, **kwargs):
+    page = graphene.Field(PageDjangoObjectType, id=graphene.Int(), slug=graphene.String())
+    def resolve_page(self, info, **kwargs):
+        id = kwargs.get('id')
+        slug = kwargs.get('slug')
+
+        if id is not None:
+            qs = Page.objects.get(pk=id)
+            return qs
+
+        if slug is not None:
+            qs = Page.objects.get(slug=slug)
+            return qs
+
+
+    pages = graphene.List(PageDjangoObjectType, content_types=graphene.String())
+    def resolve_pages(self, info, **kwargs):
         qs = Page.objects.live().public()
         content_types = kwargs.get('content_types')
         if content_types is not None:
