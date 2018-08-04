@@ -6,7 +6,7 @@ module.exports = {
         {
             resolve: 'gatsby-plugin-graphql',
             options: {
-                endpoint: 'http://localhost:8000/graphql',
+                endpoint: (process.env.WAGTAIL_URL) ? process.env.WAGTAIL_URL : 'http://localhost:8000/graphql',
                 queries: [
                     { 
                         type: 'location', 
@@ -21,7 +21,7 @@ module.exports = {
         {
             resolve: 'gatsby-plugin-graphql',
             options: {
-                endpoint: 'http://localhost:8000/graphql',
+                endpoint: (process.env.WAGTAIL_URL) ? process.env.WAGTAIL_URL : 'http://localhost:8000/graphql',
                 queries: [
                     { 
                         type: 'bread', 
