@@ -3,6 +3,7 @@ query LocationsQuery {
     id
     slug
     title
+    body
     address
     image {
       file

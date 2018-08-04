@@ -7,10 +7,12 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
   const locationTemplate = path.resolve(`src/templates/location/index.js`);
 
   return graphql(`{
-    wagtail {
-      locations {
-        id
-        slug
+    allLocation {
+      edges {
+        node {
+          id
+          slug
+        }
       }
     }
   }`)
@@ -18,18 +20,18 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
       if (result.errors) {
         return Promise.reject(result.errors);
       }
-
-      result.data.wagtail.locations
-      .forEach((node) => {
-          const id = node.id;
-          createPage({
-            path: `locations/${node.slug}`,
-            component: locationTemplate,
-            context: {
-              id
-            }
+      
+      result.data.allLocation.edges
+        .map(({node}) => {
+            const id = node.id;
+            createPage({
+              path: `locations/${node.slug}`,
+              component: locationTemplate,
+              context: {
+                id
+              }
+            });
           });
-        });
     });
 }
 
@@ -45,6 +47,7 @@ exports.modifyBabelrc = ({ babelrc }) => {
         "@queries": "./src/queries",
         "@templates": "./src/templates",
         "@styles": "./src/styles",
+        "@util": "./src/util",
       }
     }]])
 	}

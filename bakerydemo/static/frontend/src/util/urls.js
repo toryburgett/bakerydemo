@@ -1,0 +1,1 @@
+export const getMediaUrl = url => `http://localhost:8000/media/${url}`

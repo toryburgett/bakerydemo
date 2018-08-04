@@ -7,10 +7,20 @@ module.exports = {
             resolve: 'gatsby-plugin-graphql',
             options: {
                 endpoint: 'http://localhost:8000/graphql',
-                queries: {
-                    type: 'wagtail',
-                    path: `${__dirname}/src/queries/`,
-                }
+                queries: [
+                    { 
+                        type: 'location', 
+                        extractKey: 'locations', 
+                        path: './src/queries/locations.graphql',
+                        transform: node => tranformWagtailPage(node)
+                    },
+                    { 
+                        type: 'bread', 
+                        extractKey: 'breads', 
+                        path: './src/queries/bread.graphql',
+                        transform: node => tranformWagtailPage(node)
+                    }
+                ]
             },
         },
         
@@ -29,3 +39,16 @@ module.exports = {
         },
     ]
 };
+
+
+const tranformWagtailPage = page => ({
+    ...page,
+    body: (!page.body)
+        ? null
+        : page.body.map(({type, value}) => ({
+            type,
+            value: (typeof value == 'string')
+                ? { content: value }
+                : value
+        }))
+})
