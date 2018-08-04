@@ -6,5 +6,5 @@ ID = "nervous-shirley-c456e7"
 [build]
   # This is the directory to change to before starting a build.
   base    = "static/frontend/"
-  publish = "static/frontend/public
+  publish = "static/frontend/public"
   command = "gatsby build"
