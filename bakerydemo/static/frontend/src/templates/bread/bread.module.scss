@@ -1,1 +1,49 @@
 @import '../../styles/main';
+
+.breadInfo {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-column-gap: 80px;
+}
+
+.breadIntro {
+    grid-column: 1 / span 2;
+    @include for-tablet-landscape-up {
+        grid-column: 1;
+    }
+    padding-bottom: 30px;
+}
+
+.breadImg {
+    grid-column: 1 / span 2;
+    @include for-tablet-landscape-up {
+        grid-column: 2;
+    }
+    width: 100%;
+}
+
+.breadMeta {
+    grid-column: 1 / span 2;
+    @include for-tablet-landscape-up {
+        grid-column: 2;
+    }
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.breadMetaRow {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.breadMetaLabel {
+    font-size: 1.2rem;
+    color: #777;
+    font-weight: bold;
+}
+

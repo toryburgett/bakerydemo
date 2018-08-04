@@ -3,7 +3,7 @@ import { getMediaUrl } from '@util/urls'
 
 import styles from './card.module.scss'
 
-export default ({ bread: { node: {title, origin, breadType, image} }}) => {
+export default ({ bread: {title, origin, breadType, image}}) => {
     return (
         <div className={styles.card}>
             <img className={styles.cardImage} src={getMediaUrl(image.file)} alt=""/>

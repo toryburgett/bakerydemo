@@ -5,9 +5,19 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
   const { createPage } = boundActionCreators;
 
   const locationTemplate = path.resolve(`src/templates/location/index.js`);
+  const breadTemplate = path.resolve(`src/templates/bread/index.js`);
 
   return graphql(`{
     allLocation {
+      edges {
+        node {
+          id
+          slug
+        }
+      }
+    }
+
+    allBread {
       edges {
         node {
           id
@@ -32,6 +42,18 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
               }
             });
           });
+
+      result.data.allBread.edges
+          .map(({node}) => {
+              const id = node.id;
+              createPage({
+                path: `breads/${node.slug}`,
+                component: breadTemplate,
+                context: {
+                  id
+                }
+              });
+            });
     });
 }
 
