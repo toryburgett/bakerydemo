@@ -1,8 +1,4 @@
-.card {
-    display: flex;
-    border: 1px solid #e2e1e1;
-    border-radius: 3px;
-}
+@import '../../styles/main';
 
 .cardContainer {
     display: grid;
@@ -10,33 +6,8 @@
     grid-gap: 20px;
 }
 
-@media screen and (min-width: 800px) {
+@include for-tablet-landscape-up {
     .cardContainer {
         grid-template-columns: 1fr 1fr;
     }
 }
-
-.cardImage {
-    width: 180px;
-    height: 180px;
-}
-
-.cardContent {
-    padding: 20px;
-}
-
-.cardTitle {
-    margin: 0 0 1rem;
-    font-weight: 200;
-}
-
-.cardMeta {
-    font-size: 1.2rem;
-    margin: 0 0 .5rem;
-}
-
-.cardMeta span {
-    color: #777;
-    font-weight: bold;
-}
-

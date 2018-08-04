@@ -16,8 +16,7 @@ export default ({ children }) => (
         <div className={styles.page}>
             <Header links={primaryNav} />
             <StickyNav links={primaryNav} />
-
-            <div className={styles.content}>
+            <div>
                 { children() }
             </div>
         </div>

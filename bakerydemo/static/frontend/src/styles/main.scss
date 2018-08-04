@@ -1,3 +1,6 @@
-@import 'global';
-@import 'grid';
-@import 'vars';
+@import 'util/global';
+@import 'util/grid';
+@import 'util/vars';
+
+@import 'components/page';
+@import 'components/typography';

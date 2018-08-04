@@ -5,14 +5,20 @@ import Card from "@components/cards/bread";
 export default ({data:{allBread}}) => {
 
     return (
-      <div className={styles.cardContainer}>
-        {allBread.edges.map(bread => (
-          <Card 
-            key={bread.id} 
-            bread={bread}
-            styles={styles} />
-        ))}
-      </div>
+      <article className={styles.page}>
+        <header className={styles.pageHeader}>
+          <h1>Breads</h1>
+          <p>We feature outlandishly delicious breads sourced from every continent (except Antarctica).</p>
+        </header>
+        <section className={styles.cardContainer}>
+          {allBread.edges.map(bread => (
+            <Card 
+              key={bread.id} 
+              bread={bread}
+              styles={styles} />
+          ))}
+        </section>
+      </article>
     )
 }
 

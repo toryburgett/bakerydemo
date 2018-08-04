@@ -1,6 +1,10 @@
+@import '../../styles/main';
+
 .locations {
     display: grid;
     grid-template-columns: 1fr;
+    grid-column-gap: 25px;
+    grid-row-gap: 25px;
 }
 
 @media screen and (min-width: 800px) {
@@ -18,7 +22,7 @@
 }
 
 .locationImageContainer:hover {
-    background-color: #eb7400;
+    background-color: $accent;
 }
 
 .locationImageContainer:hover .locationImage {
@@ -39,6 +43,8 @@
     color: white;
     font-size: 3rem;
     margin: 0;
+    padding: 20px;
+    background: $accent;
 }
 
 .locationMeta {

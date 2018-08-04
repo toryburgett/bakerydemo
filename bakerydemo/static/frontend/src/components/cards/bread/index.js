@@ -9,8 +9,16 @@ export default ({ bread: { node: {title, origin, breadType, image} }}) => {
             <img className={styles.cardImage} src={getMediaUrl(image.file)} alt=""/>
             <div className={styles.cardContent}>
                 <h2 className={styles.cardTitle}>{title}</h2>
-                <p className={styles.cardMeta}><span>Origin</span> {origin.title}</p>
-                <p className={styles.cardMeta}><span>Type</span> {breadType.title}</p>
+                <div className={styles.cardMeta}>
+                    <span className={styles.cardMetaRow}>
+                        <span className={styles.cardMetaLabel}>Origin</span> 
+                        <span>{origin.title}</span>
+                    </span>
+                    <span className={styles.cardMetaRow}>
+                        <span className={styles.cardMetaLabel}>Type</span> 
+                        <span>{breadType.title}</span>
+                    </span>
+                </div>
             </div>
         </div>
     )
