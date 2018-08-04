@@ -13,7 +13,16 @@ module.exports = {
                         extractKey: 'locations', 
                         path: './src/queries/locations.graphql',
                         transform: node => tranformWagtailPage(node)
-                    },
+                    }
+                ]
+            },
+        },
+
+        {
+            resolve: 'gatsby-plugin-graphql',
+            options: {
+                endpoint: 'http://localhost:8000/graphql',
+                queries: [
                     { 
                         type: 'bread', 
                         extractKey: 'breads', 
@@ -23,11 +32,11 @@ module.exports = {
                 ]
             },
         },
-        
+
         {
             resolve: `gatsby-plugin-sass`,
         },
-
+    
         {
             resolve: `gatsby-plugin-google-fonts`,
             options: {
