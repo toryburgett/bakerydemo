@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'bakerydemo.locations',
     'bakerydemo.search',
 
+    'bakerydemo.netlify',
+
     'wagtail.contrib.search_promotions',
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
@@ -66,6 +68,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sitemaps',
+    'wagtail.contrib.settings'
 ]
 
 MIDDLEWARE = [
