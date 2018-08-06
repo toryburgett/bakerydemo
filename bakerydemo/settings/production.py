@@ -115,3 +115,7 @@ LOGGING = {
         },
     },
 }
+
+if 'NETLIFY_TRIGGER_URL' in os.environ:
+    NETLIFY_TRIGGER_URL = os.getenv('NETLIFY_TRIGGER_URL', '')
+
