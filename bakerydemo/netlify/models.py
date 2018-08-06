@@ -13,10 +13,6 @@ class NetlifySettings(BaseSetting):
 
 
 class Deployment(models.Model):
-    title = models.TextField(
-        help_text='Deployment Title',
-        default=time.strftime('%D - %R')
-    )
     deployment_created = models.DateTimeField(
         editable=False
     )
