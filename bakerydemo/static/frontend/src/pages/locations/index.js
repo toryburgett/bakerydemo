@@ -17,7 +17,7 @@ export default ({data}) => {
         {locations.map(({node}) => (
           <Link to={node.slug} key={node.id}>
             <div className={styles.locationImageContainer}>
-              <img className={styles.locationImage} src={getMediaUrl(node.image.file)} />
+              <img className={styles.locationImage} src={getMediaUrl(node.image.file.thumbnail)} />
               <h3 className={styles.locationHeader}>{node.title}</h3>
             </div>
           </Link>
@@ -37,7 +37,10 @@ export const query = graphql`
           slug
           address
           image {
-            file
+            file {
+              original
+              thumbnail
+            }
           }
         } 
       }

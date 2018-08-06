@@ -39,12 +39,12 @@ export const query = graphql`
   query LocationById($id: String!) {
     page(id: { eq: $id }) {
       title
-      body {
-        ...StreamFieldBlock
-      }
       introduction
       image {
-        file
+        file {
+          original
+          thumbnail
+        }
       }
       hoursOfOperation {
         day

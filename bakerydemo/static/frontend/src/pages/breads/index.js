@@ -41,7 +41,10 @@ export const query = graphql`
             title
           }
           image {
-            file
+            file {
+              original
+              thumbnail
+            }
           }
         }
       }
