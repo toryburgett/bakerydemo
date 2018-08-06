@@ -25,7 +25,7 @@ class NetlifyDeploymentAdmin(ModelAdmin):
     menu_label = 'Netlify Deployments'
     menu_icon = 'collapse-up'
     menu_order = 1000
-    list_display = ('title', 'deployment_created', 'deployment_time', 'deployment_created_by')
+    list_display = ('deployment_created', 'deployment_time', 'deployment_created_by')
     form_fields_exclude = ('deployment_created_by',)
 
 
