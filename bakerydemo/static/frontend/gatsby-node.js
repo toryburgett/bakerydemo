@@ -1,76 +1,63 @@
+const path = require('path')
 
-const path = require('path');
+exports.createPages = ({boundActionCreators, graphql}) => {
+  const {createPage} = boundActionCreators
 
-exports.createPages = ({ boundActionCreators, graphql }) => {
-  const { createPage } = boundActionCreators;
-
-  const locationTemplate = path.resolve(`src/templates/location/index.js`);
-  const breadTemplate = path.resolve(`src/templates/bread/index.js`);
+  const templates = [
+    {type: 'BreadPage', component: path.resolve(`src/templates/bread/index.js`)},
+    {type: 'LocationPage', component: path.resolve(`src/templates/location/index.js`)}
+  ]
 
   return graphql(`{
-    allLocation {
+    allPage {
       edges {
         node {
+          type
           id
-          slug
-        }
-      }
-    }
-
-    allBread {
-      edges {
-        node {
-          id
-          slug
+          urlPath
         }
       }
     }
   }`)
     .then(result => {
       if (result.errors) {
-        return Promise.reject(result.errors);
+        return Promise.reject(result.errors)
       }
-      
-      result.data.allLocation.edges
-        .map(({node}) => {
-            const id = node.id;
-            createPage({
-              path: `locations/${node.slug}`,
-              component: locationTemplate,
-              context: {
-                id
-              }
-            });
-          });
 
-      result.data.allBread.edges
-          .map(({node}) => {
-              const id = node.id;
+      result.data.allPage.edges
+        .map(({node}) => {
+          if (node.urlPath) {
+            const {urlPath, id, type} = node
+            const path = urlPath.startsWith('/home/') ? urlPath.slice(5, urlPath.length) : urlPath
+            const template = templates.find(template => template.type === type)
+            if (template) {
               createPage({
-                path: `breads/${node.slug}`,
-                component: breadTemplate,
+                path,
+                component: template.component,
                 context: {
                   id
                 }
-              });
-            });
-    });
+              })
+            }
+          }
+        })
+    })
 }
 
-exports.modifyBabelrc = ({ babelrc }) => {
-	return {
-		...babelrc,
-		plugins: babelrc.plugins.concat([["babel-plugin-module-resolver", {
-      "root": ["./src"],
-      "alias": {
-        "@components": "./src/components",
-        "@layouts": "./src/layouts",
-        "@pages": "./src/pages",
-        "@queries": "./src/queries",
-        "@templates": "./src/templates",
-        "@styles": "./src/styles",
-        "@util": "./src/util",
+exports.modifyBabelrc = ({babelrc}) => {
+  return {
+    ...babelrc,
+    plugins: babelrc.plugins.concat([['babel-plugin-module-resolver', {
+      'root': ['./src'],
+      'alias': {
+        '@components': './src/components',
+        '@layouts': './src/layouts',
+        '@pages': './src/pages',
+        '@queries': './src/queries',
+        '@templates': './src/templates',
+        '@styles': './src/styles',
+        '@util': './src/util',
       }
     }]])
-	}
+  }
 }

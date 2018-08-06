@@ -1,0 +1,76 @@
+{
+  pages {
+    specific {
+      __typename
+
+      ... on HomePage {
+        id
+        title
+        slug
+        urlPath
+
+        promoImage {
+          file
+        }
+        heroCta
+        heroCtaLink {
+          urlPath
+        }
+      }
+
+      ... on BreadPage {
+        id
+        title
+        slug
+        urlPath
+        introduction
+        body
+        origin {
+          title
+        }
+        breadType {
+          title
+        }
+        image {
+          file
+        }
+      }
+
+      ... on LocationPage {
+        id
+        title
+        slug
+        urlPath
+        introduction
+        body
+        address
+        image {
+          file
+        }
+        hoursOfOperation {
+            day
+            openingTime
+            closingTime
+        }
+      }
+
+
+      ... on StandardPage {
+        id
+        title
+        slug
+        urlPath
+        introduction
+        body
+      }
+
+      ... on Page {
+        id
+        title
+        slug
+        urlPath
+      }
+
+    }
+  }
+}

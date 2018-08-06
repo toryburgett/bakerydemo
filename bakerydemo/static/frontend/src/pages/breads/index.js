@@ -3,8 +3,8 @@ import styles from "./breads.module.scss";
 import Card from "@components/cards/bread";
 import Link from 'gatsby-link';
 
-export default ({data:{allBread}}) => {
-
+export default ({data}) => {
+    const breads = data.allPage.edges
     return (
       <article className={styles.page}>
         <header className={styles.pageHeader}>
@@ -12,7 +12,7 @@ export default ({data:{allBread}}) => {
           <p>We feature outlandishly delicious breads sourced from every continent (except Antarctica).</p>
         </header>
         <section className={styles.cardContainer}>
-          {allBread.edges.map(({node}) => {
+          {breads.map(({node}) => {
             return (
             <Link to={node.slug} key={node.id} className={styles.link}>
               <Card 
@@ -28,7 +28,7 @@ export default ({data:{allBread}}) => {
 
 export const query = graphql`
   query BreadQuery {
-    allBread {
+  	allPage(filter: { type: { eq: "BreadPage" } }) {
       edges {
         node {
           id

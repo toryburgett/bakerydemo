@@ -1,7 +1,9 @@
 import React from 'react';
 import styles from './location.module.scss';
 
-export default () => {
+export default ({ data }) => {
+    // const location = data.page
+    console.log(data)
     return (
       <div>
         <div className={styles.hero}>
@@ -33,23 +35,23 @@ export default () => {
 };
 
 //  TODO - fetch the data via ID
-// export const query = graphql`
-//   query LocationById($id: Int!) {
-//     wagtail {
-//       location(id: { eq: $id } ) {
-//         title
-//         body
-//         introduction
-//         image {
-//           file
-//         }
-//         hoursOfOperation {
-//           day
-//           openingTime
-//           closingTime
-//         }
-//         address
-//       }
-//     }
-//   }
-// `;
+export const query = graphql`
+  query LocationById($id: String!) {
+    page(id: { eq: $id }) {
+      title
+      body {
+        ...StreamFieldBlock
+      }
+      introduction
+      image {
+        file
+      }
+      hoursOfOperation {
+        day
+        openingTime
+        closingTime
+      }
+      address
+    } 
+  }
+`;

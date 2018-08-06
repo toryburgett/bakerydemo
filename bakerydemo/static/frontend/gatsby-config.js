@@ -1,63 +1,53 @@
 module.exports = {
-    siteMetadata: {
-        title: `Wagtail Bakery Demo`,
+  siteMetadata: {
+    title: `Wagtail Bakery Demo`,
+  },
+  plugins: [
+    {
+      resolve: 'gatsby-plugin-graphql',
+      options: {
+        endpoint: (process.env.WAGTAIL_URL) ? `${process.env.WAGTAIL_URL}/graphql` : 'http://localhost:8000/graphql',
+        queries: [
+          {
+            type: 'page',
+            extractKey: 'pages',
+            path: './src/queries/pages.graphql',
+            transform: node => tranformWagtailPage(node)
+          }
+        ]
+      },
     },
-    plugins: [
-        {
-            resolve: 'gatsby-plugin-graphql',
-            options: {
-                endpoint: (process.env.WAGTAIL_URL) ? process.env.WAGTAIL_URL : 'http://localhost:8000/graphql',
-                queries: [
-                    { 
-                        type: 'location', 
-                        extractKey: 'locations', 
-                        path: './src/queries/locations.graphql',
-                        transform: node => tranformWagtailPage(node)
-                    }
-                ]
-            },
-        },
 
-        {
-            resolve: 'gatsby-plugin-graphql',
-            options: {
-                endpoint: (process.env.WAGTAIL_URL) ? process.env.WAGTAIL_URL : 'http://localhost:8000/graphql',
-                queries: [
-                    { 
-                        type: 'bread', 
-                        extractKey: 'breads', 
-                        path: './src/queries/bread.graphql',
-                        transform: node => tranformWagtailPage(node)
-                    }
-                ]
-            },
-        },
+    {
+      resolve: `gatsby-plugin-sass`,
+    },
 
-        {
-            resolve: `gatsby-plugin-sass`,
-        },
-    
-        {
-            resolve: `gatsby-plugin-google-fonts`,
-            options: {
-              fonts: [
-                'Alegreya',
-                'Lato'
-              ]
-            }
-        },
-    ]
-};
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          'Alegreya',
+          'Lato'
+        ]
+      }
+    },
+  ]
+}
 
-
-const tranformWagtailPage = page => ({
+const tranformWagtailPage = node => {
+  let page = (node.specific) ? node.specific[0] : {}
+  // console.log()
+  return ({
     ...page,
+    type: page.__typename,
     body: (!page.body)
-        ? null
-        : page.body.map(({type, value}) => ({
-            type,
-            value: (typeof value == 'string')
-                ? { content: value }
-                : value
-        }))
-})
+      ? null
+      : page.body.map(({type, value}) => ({
+        type,
+        value: (typeof value == 'string')
+          ? {content: value}
+          : value
+      }))
+  })
+
+}

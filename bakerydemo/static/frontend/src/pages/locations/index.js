@@ -2,7 +2,8 @@ import React from 'react';
 import styles from './locations.module.scss';
 import Link from 'gatsby-link';
 
-export default ({data: {allLocation}}) => {
+export default ({data}) => {
+  const locations = data.allPage.edges
   return (
     <article className={styles.page}>
       <header className={styles.pageHeader}>
@@ -11,7 +12,7 @@ export default ({data: {allLocation}}) => {
       </header>
 
       <section className={styles.locations}>
-        {allLocation.edges.map(({node}) => (
+        {locations.map(({node}) => (
           <Link to={node.slug} key={node.id}>
             <div className={styles.locationImageContainer}>
               <img className={styles.locationImage} src={`http://localhost:8000/media/${node.image.file}`} />
@@ -26,7 +27,7 @@ export default ({data: {allLocation}}) => {
 
 export const query = graphql`
   query LocationQuery {
-      allLocation {
+      allPage(filter: { type: { eq: "LocationPage" } }) {
         edges {
           node {
           id

@@ -4,9 +4,8 @@ import { getMediaUrl } from '@util/urls'
 
 import styles from './bread.module.scss'
 
-export default (props) => {
-    const { data: {bread} } = props
-    console.log(bread)
+export default ({ data }) => {
+    const bread = data.page
     return (
         <article className={styles.page}>
             <header className={styles.pageHeader}>
@@ -36,7 +35,7 @@ export default (props) => {
 
 export const query = graphql`
   query BreadById($id: String!) {
-      bread(id: { eq: $id } ) {
+      page(id: { eq: $id }) {
         title
         introduction
         origin {
@@ -47,7 +46,9 @@ export const query = graphql`
         }
         image {
             file
-        }
+        }  
       } 
   }
+  
+  
 `;
