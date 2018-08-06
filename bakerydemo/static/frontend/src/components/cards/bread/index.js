@@ -4,7 +4,6 @@ import { getMediaUrl } from '@util/urls'
 import styles from './card.module.scss'
 
 export default ({ bread: {title, origin, breadType, image}}) => {
-    console.log(image)
     return (
         <div className={styles.card}>
             <img className={styles.cardImage} src={getMediaUrl(image.file.thumbnail)} alt=""/>

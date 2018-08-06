@@ -3,6 +3,8 @@ module.exports = {
     title: `Wagtail Bakery Demo`,
   },
   plugins: [
+    `gatsby-plugin-react-next`,
+
     {
       resolve: 'gatsby-plugin-graphql',
       options: {

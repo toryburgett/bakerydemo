@@ -24,13 +24,17 @@
     "@fortawesome/free-solid-svg-icons": "^5.1.0-11",
     "@fortawesome/react-fontawesome": "^0.1.0-11",
     "babel-plugin-module-resolver": "^3.1.1",
+    "babel-plugin-transform-export-extensions": "^6.22.0",
     "breakpoint-sass": "^2.7.1",
+    "dayjs": "^1.7.4",
     "font-awesome": "^4.7.0",
     "gatsby": "^1.9.250",
     "gatsby-link": "^1.6.40",
     "gatsby-node-helpers": "^0.3.0",
     "gatsby-plugin-google-fonts": "^0.0.4",
     "gatsby-plugin-graphql": "2.0.3",
-    "gatsby-plugin-sass": "^1.0.26"
+    "gatsby-plugin-react-next": "^1.0.11",
+    "gatsby-plugin-sass": "^1.0.26",
+    "react-google-maps": "^9.4.5"
   }
 }

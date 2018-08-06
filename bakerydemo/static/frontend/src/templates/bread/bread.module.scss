@@ -14,9 +14,17 @@
     padding-bottom: 30px;
 }
 
+.breadContent {
+    grid-column: 1 / span 2;
+    @include for-tablet-landscape-up {
+        grid-column: 1;
+    }
+}
+
 .breadImg {
     grid-column: 1 / span 2;
     @include for-tablet-landscape-up {
+        grid-row: 1;
         grid-column: 2;
     }
     width: 100%;
