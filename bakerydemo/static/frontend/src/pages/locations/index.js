@@ -2,6 +2,8 @@ import React from 'react';
 import styles from './locations.module.scss';
 import Link from 'gatsby-link';
 
+import { getMediaUrl } from '@util/urls'
+
 export default ({data}) => {
   const locations = data.allPage.edges
   return (
@@ -15,7 +17,7 @@ export default ({data}) => {
         {locations.map(({node}) => (
           <Link to={node.slug} key={node.id}>
             <div className={styles.locationImageContainer}>
-              <img className={styles.locationImage} src={`http://localhost:8000/media/${node.image.file}`} />
+              <img className={styles.locationImage} src={getMediaUrl(node.image.file)} />
               <h3 className={styles.locationHeader}>{node.title}</h3>
             </div>
           </Link>
