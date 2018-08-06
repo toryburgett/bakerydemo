@@ -27,7 +27,9 @@ class Deployment(models.Model):
     )
 
     def save(self, *args, **kwargs):
-        self.deployment_created_by = 'Admin'
+        if self.deployment_created is None:
+            self.deployment_created_by = 'Admin'
+
         self.deployment_created = timezone.now()
         if self.deployment_time is None:
             self.deployment_time = self.deployment_created
