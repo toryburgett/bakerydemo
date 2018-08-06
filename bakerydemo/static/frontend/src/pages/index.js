@@ -1,4 +1,5 @@
 import React from "react";
+import { StreamFieldBlock } from '../fragments'
 
 export default () => {
     return (
